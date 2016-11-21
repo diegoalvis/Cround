@@ -17,8 +17,6 @@ public class SplashActivity extends AppCompatActivity {
     TextView tv_titulo, tv_eslogan;
 
     IntentLauncher intentLauncher;
-    private SharedPreferences preferences;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

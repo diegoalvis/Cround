@@ -22,7 +22,7 @@ void setup() {
   voice.vconstant = 5;
   voice.fconstant = 100;
 
-  Serial.begin(9600);
+  Serial.begin(9600); //tasa
   Serial3.begin(9600);
 
   FLAG_1 = false;
@@ -36,7 +36,6 @@ void setup() {
   noSend = false;
 }
 
-int i = 0;
 
 void loop() {
   // put your main code here, to run repeatedly:
@@ -58,8 +57,8 @@ void loop() {
     }    
     if(p == 'h') {
       FLAG_H1 = true;
-      siSend = false;
-      noSend = false;
+      FLAG_1 = false;
+      FLAG_4 = false;
     }
 
     
@@ -75,8 +74,8 @@ void loop() {
     }
     if(voice.testCoeff == 1) {
       FLAG_1 = true;
-      muteSend = false;
-      noSend = false;
+      FLAG_4 = false;
+      FLAG_H1 = false;
     }
     
 
@@ -92,8 +91,8 @@ void loop() {
     }
     if(voice.testCoeff == 5) {
       FLAG_4 = true;
-      muteSend = false;
-      siSend = false;
+      FLAG_1 = false;
+      FLAG_H1 = false;
     }
 
    

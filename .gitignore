@@ -4,9 +4,13 @@
 /.idea/workspace.xml
 /.idea/libraries
 .DS_Store
+/build
 /captures
 .externalNativeBuild
 
+# Apk files
+*.apk
+*.ap_
 
 # Files for the ART/Dalvik VM
 *.dex

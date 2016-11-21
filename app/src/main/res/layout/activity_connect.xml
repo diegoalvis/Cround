@@ -42,7 +42,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="UNIVERSIDAD COOPERATIVA DE COLOMBIA\nPROGRAMA INGENIRA DE SISTEMAS"/>
+        android:text="UNIVERSIDAD COOPERATIVA DE COLOMBIA\nPROGRAMA INGENIERIA DE SISTEMAS"/>
 
 
 </RelativeLayout>

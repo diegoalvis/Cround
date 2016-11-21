@@ -87,7 +87,7 @@ public class ConnectActivity extends AppCompatActivity implements View.OnClickLi
             public void handleMessage(Message msg) {
                 try {
 
-                    if (msg.what == HANDLER_STATE) {      //Si el estado del mensaje es 0
+                    if (msg.what == HANDLER_STATE) {      //Si el estado del mensaje es 0 es del bluetooth
                         String readMessage = (String) msg.obj;           //Se obtiene el cuerpo del mensaje
                         recDataString.append(readMessage);     //Adjunta los caracteres al string hasta encontrar el caracter + (delimitador)
                         int endOfLineIndex = recDataString.indexOf("+");  //Obtiene la posicion del delimitador
@@ -97,8 +97,8 @@ public class ConnectActivity extends AppCompatActivity implements View.OnClickLi
                             /**** LOGs de mensaje y tamaño del mensaje ****/
                             Log.e("Datos recibidos = ", dataInPrint);
                             Log.e("Tamaño del String = ", String.valueOf(dataLength));
-
                             if (modoTV) {
+                                Log.e("modo", "true");
                                 switch (recDataString.charAt(0)) {  //Opciones segun el mensaje recibido
                                     case SUBIR_CANAL_OP:
                                         ChangeChannel(UP_CHANNEL_FLAG);
@@ -234,6 +234,7 @@ public class ConnectActivity extends AppCompatActivity implements View.OnClickLi
                     btSocket.close();
                 else
                     btSocket.connect();
+
             } catch (IOException e) {
                 Toast.makeText(this, "No se pudo establecer la conexión", Toast.LENGTH_SHORT).show();
                 e.printStackTrace();
@@ -250,7 +251,7 @@ public class ConnectActivity extends AppCompatActivity implements View.OnClickLi
         if (btSocket != null) {
             if (btSocket.isConnected()) {
                 Toast.makeText(this, "Conectado", Toast.LENGTH_SHORT).show();
-                btnConnect.setText("CONECTADO");
+                btnConnect.setText("DESCONECTAR");
                 btnIr.setOnClickListener(this);
 
                 mConnectedThread = new ConnectedThread(btSocket);
