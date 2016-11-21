@@ -215,7 +215,7 @@ public class ConnectActivity extends AppCompatActivity implements View.OnClickLi
     @Override
     protected void onStop() {
         super.onStop();
-        if(mBluetoothAdapter != null && btSocket.isConnected()) {
+        if(mBluetoothAdapter != null && btSocket != null && btSocket.isConnected()) {
             try {
                 btSocket.close();
             } catch (IOException e) {

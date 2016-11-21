@@ -46,7 +46,7 @@ void loop() {
     //Serial.println(voice.testCoeff);
     //Serial.println(p);
 
-  if(FLAG_H1 &&  p == 'h') {
+  if(!muteSend && FLAG_H1 &&  p == 'h') {
       Serial.println("MUTE");
       Serial3.print(MUTE_OP);Serial3.println("+");
       delay(retardo);
@@ -62,8 +62,6 @@ void loop() {
       noSend = false;
     }
 
-
-   
     
     if(FLAG_1 && voice.testCoeff == 1) {
       Serial.println("SI");
@@ -82,7 +80,7 @@ void loop() {
     }
     
 
-    if(FLAG_4 && voice.testCoeff == 4) {
+    if(FLAG_4 && voice.testCoeff == 5) {
       Serial.println("NO");
       Serial3.print(BAJAR_CANAL_OP);Serial3.println("+");
       delay(retardo);
@@ -92,7 +90,7 @@ void loop() {
       siSend = false;
       noSend = true;
     }
-    if(voice.testCoeff == 4) {
+    if(voice.testCoeff == 5) {
       FLAG_4 = true;
       muteSend = false;
       siSend = false;
